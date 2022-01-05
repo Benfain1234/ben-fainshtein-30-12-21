@@ -1,0 +1,13 @@
+nav{
+	
+     display: flex;
+     justify-content: center;
+}
+ 
+p{
+	border: 5px inset coral;
+  display: inline-block;
+  color: black;
+  background-color: #B0C4DE;
+  border-radius: 20px;
+}
