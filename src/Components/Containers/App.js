@@ -109,20 +109,20 @@ const App =()=>  {
         url: `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b&q=tel-aviv`,
 
     })
-        .then(res => Settempid(res.data[0].Key))
+        .then(res => Settempid(res[0].Key))
 
     axios({
         method: 'get',
         url: "http://dataservice.accuweather.com/currentconditions/v1/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b",
     })
-        .then(res => Setcurrentres(res.data[0]))
+        .then(res => Setcurrentres(res[0]))
 
     axios({
         method: 'get',
         url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b",
 
     })
-        .then(res => Setforcast(res.data))
+        .then(res => Setforcast(res))
        },[])
 
     const cardsStatus=()=>{
@@ -178,20 +178,20 @@ const onUserSelect=(optionKey,optionName)=>{
         url:`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b&q=${optionName}`,
 
     })
-        .then(res=> Settempid(res.data[0].Key))
+        .then(res=> Settempid(res[0].Key))
 
     axios({
         method: 'get',
         url: `http://dataservice.accuweather.com/currentconditions/v1/${optionKey}?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b`,
     })
-        .then(res=> Setcurrentres(res.data[0]))
+        .then(res=> Setcurrentres(res[0]))
 
     axios({
         method: 'get',
         url:`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${optionKey}?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b`,
 
     })
-        .then(res=> Setforcast(res.data))
+        .then(res=> Setforcast(res))
 }
 
     const Setfilteredcities=()=>{
