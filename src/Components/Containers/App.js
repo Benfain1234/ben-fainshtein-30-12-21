@@ -52,7 +52,7 @@ const App =()=>  {
      if (event.target.value.length===3){
          axios({
              method: 'get',
-             url:`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5&q=${event.target.value}`,
+             url:`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b&q=${event.target.value}`,
          })
              .then(res=> Setautocomplate(res.data))
      }
@@ -64,20 +64,20 @@ const App =()=>  {
    const onFevClick =(name)=>{
        axios({
            method: 'get',
-           url:`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5=${name}`,
+           url:`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b=${name}`,
 
        })
            .then(res=> state.favorites[0]=(res.data[0].Key))
 
        axios({
            method: 'get',
-           url:"http://dataservice.accuweather.com/currentconditions/v1/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5",
+           url:"http://dataservice.accuweather.com/currentconditions/v1/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b",
        })
            .then(res=> state.favorites[1]=(res.data[0]))
 
        axios({
            method: 'get',
-           url:"http://dataservice.accuweather.com/forecasts/v1/daily/5day/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5",
+           url:"http://dataservice.accuweather.com/forecasts/v1/daily/5day/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b",
 
        })
            .then(res=> state.favorites[2]=(res.data))
@@ -96,7 +96,7 @@ const App =()=>  {
        for (let i=0;i<localStorage.length;i++)
        {
           let tempfav=JSON.parse((localStorage.getItem(localStorage.key(i))))
-             const temppro=axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${tempfav.id}?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5`)
+             const temppro=axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${tempfav.id}?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b`)
               promises.push(temppro)
             FavNames.push(tempfav.name)
        }
@@ -106,20 +106,20 @@ const App =()=>  {
       SetfirstPage('false');
     axios({
         method: 'get',
-        url: `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5&q=tel-aviv`,
+        url: `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b&q=tel-aviv`,
 
     })
         .then(res => Settempid(res.data[0].Key))
 
     axios({
         method: 'get',
-        url: "http://dataservice.accuweather.com/currentconditions/v1/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5",
+        url: "http://dataservice.accuweather.com/currentconditions/v1/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b",
     })
         .then(res => Setcurrentres(res.data[0]))
 
     axios({
         method: 'get',
-        url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5",
+        url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b",
 
     })
         .then(res => Setforcast(res.data))
@@ -175,20 +175,20 @@ const onUserSelect=(optionKey,optionName)=>{
 
     axios({
         method: 'get',
-        url:`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5&q=${optionName}`,
+        url:`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b&q=${optionName}`,
 
     })
         .then(res=> Settempid(res.data[0].Key))
 
     axios({
         method: 'get',
-        url: `http://dataservice.accuweather.com/currentconditions/v1/${optionKey}?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5`,
+        url: `http://dataservice.accuweather.com/currentconditions/v1/${optionKey}?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b`,
     })
         .then(res=> Setcurrentres(res.data[0]))
 
     axios({
         method: 'get',
-        url:`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${optionKey}?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5`,
+        url:`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${optionKey}?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b`,
 
     })
         .then(res=> Setforcast(res.data))
