@@ -54,7 +54,7 @@ const App =()=>  {
              method: 'get',
              url:`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b&q=${event.target.value}`,
          })
-             .then(res=> Setautocomplate(res.data))
+             .then(res=> Setautocomplate(res))
      }
     if(event.target.value.length<3){
         Setautocomplate([])
