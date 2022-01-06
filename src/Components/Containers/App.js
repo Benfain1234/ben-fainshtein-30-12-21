@@ -67,20 +67,20 @@ const App =()=>  {
            url:`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b=${name}`,
 
        })
-           .then(res=> state.favorites[0]=(res.data[0].Key))
+           .then(res=> state.favorites[0]=(res[0].Key))
 
        axios({
            method: 'get',
            url:"http://dataservice.accuweather.com/currentconditions/v1/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b",
        })
-           .then(res=> state.favorites[1]=(res.data[0]))
+           .then(res=> state.favorites[1]=(res[0]))
 
        axios({
            method: 'get',
            url:"http://dataservice.accuweather.com/forecasts/v1/daily/5day/215854?apikey=0qIXVD2sQihKaDSFhZnfEkseGkf2vg5b",
 
        })
-           .then(res=> state.favorites[2]=(res.data))
+           .then(res=> state.favorites[2]=(res))
 
       console.log(state.favorites)
 
